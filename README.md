@@ -1,5 +1,7 @@
 # pure-config-examples
-Simple examples to load configuration of certain types in a better way
+Contains examples to load configuration of certain types in a better way:
+1. A basic example
+2. Support of custom type
 
 ### application.conf file :
 ~~~
