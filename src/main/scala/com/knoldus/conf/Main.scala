@@ -2,9 +2,13 @@ package com.knoldus.conf
 
 object Main extends App {
 
-  val simpleConfig = new SimpleConfig().getConfig
+  // To see SimpleConfig output
+ // val simpleConfig = new SimpleConfig().getConfig
 
-  simpleConfig match {
+  // To see CustomType output
+  val customType = new CustomType().getConfig
+
+  customType match {
     case Left(ex) => ex.toList.foreach(println)
 
     case Right(config) => println(s"Company's Name ${config.company.fullName}")
