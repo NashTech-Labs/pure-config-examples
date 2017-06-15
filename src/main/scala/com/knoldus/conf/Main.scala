@@ -2,6 +2,8 @@ package com.knoldus.conf
 
 object Main extends App {
 
+  // ------------------------------ Read config---------------------------------------
+
   // To see SimpleConfig output
   // val config = new SimpleConfig().getConfig
 
@@ -10,6 +12,7 @@ object Main extends App {
 
   // To see ConfigReaderOverrideBehavior output
   val config = new ConfigReaderOverrideBehavior().getConfig
+
 
   config match {
     case Left(ex) => ex.toList.foreach(println)
@@ -22,5 +25,14 @@ object Main extends App {
       println(s"Company's office in India are: ${conf.company.officesInIndia}")
       println(s"Company's extra activity is: ${conf.company.extraActivity}")
   }
+
+
+  // -------------------------------------Write config------------------------------------------
+
+  // To see ConfigReaderOverrideBehavior output
+  println("-------------------------------------------------------")
+  val configValue = new ConfigWriterOverrideBehavior().getConfig
+  println(s"Config value: $configValue")
+
 
 }
