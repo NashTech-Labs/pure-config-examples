@@ -1,6 +1,10 @@
 package com.knoldus.conf
 
+import com.knoldus.conf.models.{Company, CompanyDetails}
+
 object Main extends App {
+
+  val company = Company(CompanyDetails("Knoldus Software LLP", 2012, "80-120", Nil, Map(), None))
 
   // ------------------------------ Read config---------------------------------------
 
@@ -11,7 +15,10 @@ object Main extends App {
   //  val config = new CustomType().getConfig
 
   // To see ConfigReaderOverrideBehavior output
-  val config = new ConfigReaderOverrideBehavior().getConfig
+  // val config = new ConfigReaderOverrideBehavior().getConfig
+
+  // To see ConfigReaderOverrideBehavior output
+  val (config, configValue) = new ConfigConvertOverrideBehavior().getConfig(company)
 
 
   config match {
@@ -30,9 +37,8 @@ object Main extends App {
   // -------------------------------------Write config------------------------------------------
 
   // To see ConfigReaderOverrideBehavior output
+  // val configValue = new ConfigWriterOverrideBehavior().getConfig(company)
+
   println("-------------------------------------------------------")
-  val configValue = new ConfigWriterOverrideBehavior().getConfig
   println(s"Config value: $configValue")
-
-
 }
